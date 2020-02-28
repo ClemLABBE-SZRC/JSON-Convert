@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON_Convert", "JSON_Convert\JSON_Convert.csproj", "{2990B5B0-45B3-4613-8A54-5ACEB0F12D53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2990B5B0-45B3-4613-8A54-5ACEB0F12D53}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{2990B5B0-45B3-4613-8A54-5ACEB0F12D53}.Debug|anycpu.Build.0 = Debug|anycpu
+		{2990B5B0-45B3-4613-8A54-5ACEB0F12D53}.Release|anycpu.ActiveCfg = Release|anycpu
+		{2990B5B0-45B3-4613-8A54-5ACEB0F12D53}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
