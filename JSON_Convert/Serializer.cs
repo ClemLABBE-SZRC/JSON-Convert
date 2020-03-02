@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Runtime.Remoting.Contexts;
+using System.Collections;
 
 namespace JSON_Convert
 {
@@ -21,7 +21,24 @@ namespace JSON_Convert
             IList<FieldInfo> publicFields = new List<FieldInfo>(myType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic));
             foreach (FieldInfo field in publicFields)
             {
-                if (field.GetValue(o).GetType().IsPrimitive || field.GetValue(o).GetType() == typeof(String) || field.GetValue(o).GetType() == typeof(Decimal)) {
+                var enumerable = field.GetValue(o) as IEnumerable;
+                if ((enumerable != null) && (enumerable.GetType() != typeof(String)))
+                {
+                    ArrayList LocalList = new ArrayList();
+                    foreach (var item in enumerable)
+                    {
+                        if (item.GetType().IsPrimitive || item.GetType() == typeof(String) || item.GetType() == typeof(Decimal))
+                        {
+                            LocalList.Add(item);
+                        }
+                        else
+                        {
+                            LocalList.Add(Serialize(item));
+                        }
+                    }
+                    dic.Add(field.Name, LocalList);
+                }
+                else if (field.GetValue(o).GetType().IsPrimitive || field.GetValue(o).GetType() == typeof(String) || field.GetValue(o).GetType() == typeof(Decimal)) {
                     dic.Add(field.Name, field.GetValue(o));
                 }
                 else
@@ -29,11 +46,6 @@ namespace JSON_Convert
                     dic.Add(field.Name, Serialize(field.GetValue(o)));
                 }
             }
-
-           
-
-          
-
             return dic;
         }
 
