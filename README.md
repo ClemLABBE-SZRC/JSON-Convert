@@ -10,3 +10,5 @@ Le nom des variables utilisées permet de connaitre le type de variable. Exemple
 La classe main cré un objet de la classe TestClass, qui contient des attributs de différents types primitifs, privés ou publics.
 Cet objet contient également des liste et des objets de la classe TestClass2.
 Après avoir créé cet objet, la fonction main affiche le dictionnaire retourné par la fonction  Serialize de la classe Serialization.
+
+La récursivité a été utilisée pour la sérialisation des attributs qui sont des IEnumerable ainsi que pour les attributs de type objet (qui ne sont pas des IEnumerable).
